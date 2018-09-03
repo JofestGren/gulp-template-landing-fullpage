@@ -38,7 +38,7 @@ module.exports = function () {
   });
 
   $.gulp.task('json:copy', function () {
-    return $.gulp.src('./dev/static/js/data/*.json')
+    return $.gulp.src('./src/static/js/data/*.json')
       .pipe($.gulp.dest('./build/static/js/data/'))
       .pipe($.bs.reload({
           stream: true
