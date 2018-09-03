@@ -1,8 +1,10 @@
-window.onload = () => {
-  let windowSize = {
-    windowWidth: window.innerWidth,
-    windowHeight: window.innerHeight
-  }
+$(document).ready(function() {
+	$('#fullpage').fullpage({
+		//options here
+		// autoScrolling:true,
+		scrollHorizontally: true
+	});
 
-  alert(`window width: ${windowSize.windowWidth}, window height ${windowSize.windowHeight}`)
-}
+	//methods
+	// $.fn.fullpage.setAllowScrolling(false);
+});
