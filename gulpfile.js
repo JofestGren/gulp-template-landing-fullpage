@@ -1,30 +1,25 @@
-'use strict';
-
 global.$ = {
+  path: {
+      task: require('./gulp/config/tasks.js')
+  },
   gulp: require('gulp'),
   del: require('del'),
   fs: require('fs'),
-  gp: require('gulp-load-plugins')(),
   bs: require('browser-sync').create(),
-
-  path: {
-    tasks: require('./gulp/config/tasks.js')
-  }
+  gp: require('gulp-load-plugins')()
 };
 
-$.path.tasks.forEach(function (taskPath) {
+$.path.task.forEach(function(taskPath) {
   require(taskPath)();
 });
 
 $.gulp.task('dev', $.gulp.series(
   'clean',
-  // $.gulp.parallel('sass:dev', 'pug', 'js:copy', 'json:copy', 'svg', 'img:dev', 'fonts','svg:copy')));
-  $.gulp.parallel('sass:dev', 'pug', 'libsJS:dev', 'js:copy', 'json:copy', 'svg', 'img:dev', 'fonts','svg:copy')));
+  $.gulp.parallel('sass:dev', 'pug', 'libsJS:dev', 'js:copy', 'json:copy', 'svg', 'img:dev', 'fonts','svg:copy', 'video')));
 
 $.gulp.task('build', $.gulp.series(
   'clean',
-  // $.gulp.parallel('sass:build', 'pug', 'js:copy', 'json:copy', 'svg', 'img:build', 'fonts','svg:copy')));
-  $.gulp.parallel('sass:build', 'pug', 'libsJS:build', 'js:copy', 'json:copy', 'svg', 'img:build', 'fonts','svg:copy')));
+  $.gulp.parallel('sass:build', 'pug', 'libsJS:build', 'js:copy', 'json:copy', 'svg', 'img:build', 'fonts','svg:copy', 'video')));
 
 $.gulp.task('default', $.gulp.series(
   'dev',

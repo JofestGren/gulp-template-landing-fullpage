@@ -1,7 +1,8 @@
 module.exports = function () {
   $.gulp.task('libsJS:dev', function () {
     return $.gulp.src(['node_modules/jquery/dist/jquery.min.js',
-                        'node_modules/fullpage.js/dist/fullpage.min.js'])
+                        'node_modules/fullpage.js/vendors/scrolloverflow.min.js',
+                        'node_modules/fullpage.js/dist/jquery.fullpage.min.js'])
       .pipe($.gp.concat('libs.min.js'))
       .pipe($.gulp.dest('./build/static/js/'))
       .pipe($.bs.reload({
@@ -11,7 +12,8 @@ module.exports = function () {
 
   $.gulp.task('libsJS:build', function () {
     return $.gulp.src(['node_modules/jquery/dist/jquery.min.js',
-                        'node_modules/fullpage.js/dist/fullpage.min.js'])
+                        'node_modules/fullpage.js/vendors/scrolloverflow.min.js',
+                        'node_modules/fullpage.js/dist/jquery.fullpage.min.js'])
       .pipe($.gp.concat('libs.min.js'))
       .pipe($.gp.uglifyjs())
       .pipe($.gulp.dest('./build/static/js/'));
