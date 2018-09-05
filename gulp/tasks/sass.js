@@ -2,10 +2,10 @@ module.exports = function () {
   $.gulp.task('sass:build', () => {
     return $.gulp.src('./src/static/sass/main.sass')
       .pipe($.gp.sass({
-          includePaths:  [
-            `node_modules/normalize.css/normalize.css`,
-            `node_modules/fullpage.js/dist/jquery.fullpage.min.css`
-          ]
+        includePaths: [
+          'node_modules/normalize.css/normalize.css',
+          'node_modules/fullpage.js/dist/jquery.fullpage.min.css'
+        ]
       }).on('error', sass.logError))
       .pipe($.gp.autoprefixer({
           browsers: ['last 6 version']
@@ -19,7 +19,10 @@ module.exports = function () {
     return $.gulp.src('./src/static/sass/main.sass')
       .pipe($.gp.sourcemaps.init())
       .pipe($.gp.sass({
-        'include css': true
+        includePaths: [
+          'node_modules/normalize.css/normalize.css',
+          'node_modules/fullpage.js/dist/jquery.fullpage.min.css'
+        ]
       }))
       .on('error', $.gp.notify.onError(function(error) {
         return {
