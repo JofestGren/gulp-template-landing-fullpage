@@ -1,5 +1,5 @@
 module.exports = function () {
-    $.gulp.task('stylus:build', () => {
+    $.gulp.task('stylus:build', function () {
         return $.gulp.src('./src/static/stylus/main.styl')
             .pipe($.gp.stylus({
                 'include css': true
@@ -12,7 +12,7 @@ module.exports = function () {
             .pipe($.gulp.dest('./build/static/css/'))
     });
 
-    $.gulp.task('stylus:dev', () => {
+    $.gulp.task('stylus:dev', function () {
         return $.gulp.src('./src/static/stylus/main.styl')
             .pipe($.gp.sourcemaps.init())
             .pipe($.gp.stylus({
